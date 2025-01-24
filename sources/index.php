@@ -18,8 +18,8 @@ $producer->run();
 $consumersCount = intdiv(
     Definitions::LEADS_COUNT * Definitions::LEAD_PROCESS_TIME_SECONDS,
     Definitions::TIME_LIMIT_SECONDS,
-) + 1;
+) * 2;
 
 for (; $consumersCount >= 0; $consumersCount--) {
-    exec('php' . __DIR__ . '/app/Consumer/consumer.php > /dev/null &');
+    exec('php ' . __DIR__ . '/app/Consumer/consumer.php > /dev/null &');
 }
