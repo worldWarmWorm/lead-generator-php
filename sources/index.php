@@ -21,5 +21,5 @@ $consumersCount = intdiv(
 ) + 1;
 
 for (; $consumersCount >= 0; $consumersCount--) {
-    exec(__DIR__ . '/app/Consumer/consumer.php');
+    exec('php' . __DIR__ . '/app/Consumer/consumer.php > /dev/null &');
 }

@@ -1,13 +1,15 @@
 services:
   php-cli:
-   container_name: php-cli
-   environment:
-     REDIS_HOST: 'redis'
-     LOG_PATH: '/app/log/leads.txt'
-   build:
-     dockerfile: docker/php-cli/Dockerfile
-   volumes:
-     - ./log:/app/log/
+    depends_on:
+      - redis
+    container_name: php-cli
+    environment:
+      REDIS_HOST: 'redis'
+      LOG_PATH: '/app/log/leads.txt'
+    build:
+      dockerfile: docker/php-cli/Dockerfile
+    volumes:
+      - ./log:/app/log/
 
   redis:
     image: redis:7.4
@@ -22,4 +24,4 @@ networks:
     driver: bridge
 
 volumes:
-    redis:
+  redis:

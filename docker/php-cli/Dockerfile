@@ -17,6 +17,6 @@ WORKDIR /app
 COPY --chmod=777 ./sources .
 RUN composer install
 
-#ENTRYPOINT ["sleep", "infinity"]
-ENTRYPOINT ["php"]
-CMD ["index.php"]
+ENTRYPOINT ["sleep", "infinity"]
+#ENTRYPOINT ["php"]
+#CMD ["index.php"]
