@@ -18,12 +18,14 @@ Let up docker containers
 ```
 docker compose up -d --build
 ```
-As soon as the containers rise, the command ```php index.php``` will be executed automatically. The
-```index.php``` is entrypoint. Wait for the command to complete.
+Open console of container ```php-cli``` and run command
 
-If you want to watch remaining in runtime execute command ```tail -f log/leads.txt```
+```
+php index.php
+```
+It will start to generate leads.
 
-If you need to stop process just down containers via ```docker compose down -v```
+If you want to watch remaining in runtime execute command ```tail -f log/leads.txt``` inside  ```php-cli``` container
 
 After generation is complete you may check you new leads in file ```/log/leads.txt```
 
