@@ -50,7 +50,6 @@ final class ServiceContainer implements ContainerInterface
 
         $this->services = [
             Queue::class => new RedisQueue(new \Redis(['host' => (string) getenv('REDIS_HOST')])),
-//            Queue::class => new RedisQueue(new \Redis(['host' => '127.0.0.1',])),
             Logger::class => new FileLogger((string) getenv('LOG_PATH')),
             Processor::class =>  new SleepProcessor(),
             ClockInterface::class => new WallClock(),

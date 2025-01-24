@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Infrastructure\Services\WallClock;
 use Producer\ProducerApp;
 use Infrastructure\Contracts\Queue;
 use Infrastructure\Definitions;
