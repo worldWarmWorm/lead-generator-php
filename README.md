@@ -4,12 +4,12 @@
 
 via HTTP: 
 ```
-git pull
+git clone https://github.com/worldWarmWorm/lead-generator-php.git
 ```
 
 via SSH:
 ```
-git pull
+git clone git@github.com:worldWarmWorm/lead-generator-php.git
 ```
 
 ### How to use
