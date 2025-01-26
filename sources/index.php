@@ -11,7 +11,6 @@ use LeadGenerator\Generator;
 require __DIR__ . '/vendor/autoload.php';
 
 $services = new ServiceContainer();
-
 $producer = new ProducerApp($services->get(Generator::class), $services->get(Queue::class));
 $producer->run();
 
@@ -21,5 +20,5 @@ $consumersCount = intdiv(
 ) * 2;
 
 for (; $consumersCount >= 0; $consumersCount--) {
-    exec('php ' . __DIR__ . '/app/Consumer/consumer.php > /dev/null &');
+    exec('php ' . __DIR__ . '/app/Consumer/worker.php > /dev/null &');
 }

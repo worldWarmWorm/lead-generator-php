@@ -14,16 +14,18 @@ git clone git@github.com:worldWarmWorm/lead-generator-php.git
 
 ### How to use
 
-Let up docker containers
+Up docker containers with build
 ```
 docker compose up -d --build
 ```
-Open console of container ```php-cli``` and run command
-
+Open terminal in container ```php-cli```
+```
+docker exec -it php-cli sh
+```
+Start lead's generator
 ```
 php index.php
 ```
-It will start to generate leads.
 
 If you want to watch remaining in runtime execute command ```tail -f log/leads.txt``` inside  ```php-cli``` container
 

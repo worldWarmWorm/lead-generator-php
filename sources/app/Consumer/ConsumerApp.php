@@ -6,7 +6,6 @@ namespace Consumer;
 
 use DateTimeInterface;
 use Infrastructure\Contracts\Logger;
-use Infrastructure\Contracts\Processor;
 use Infrastructure\Contracts\Queue;
 use Infrastructure\Definitions;
 use Psr\Clock\ClockInterface;
@@ -17,7 +16,6 @@ final readonly class ConsumerApp
 
     public function __construct(
         private Queue $queue,
-        private Processor $processor,
         private Logger $logger,
         private ClockInterface $clock,
     ) {}
@@ -32,8 +30,7 @@ final readonly class ConsumerApp
                 continue;
             }
 
-            $this->processor->process($message);
-
+            sleep(Definitions::LEAD_PROCESS_TIME_SECONDS);
             $this->logger->log($this->modifyMessage($message));
         }
     }
